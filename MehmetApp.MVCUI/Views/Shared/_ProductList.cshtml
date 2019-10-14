@@ -1,0 +1,69 @@
+﻿@using MehmetApp.MVCUI.Models;
+@model IEnumerable<ProductModel>
+
+<style>
+
+
+    .description {
+    
+    
+        height:40px;
+    
+    }
+
+    .card-title {
+        font-size: 16px;
+        font-weight: 3300;
+        line-height: 1.35em;
+        height: 34px;
+    }
+
+    .card-text {
+        font-size: 15px;
+    }
+
+    .product-price {
+        color: #ff0000;
+        font-weight: 800;
+        font-size: 25px;
+        font-style: initial;
+    }
+
+</style>
+
+    <div class="row">
+
+
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-5">
+                <div class="card">
+                    <img src="/Upload/@product.Image" class="card-img-top" alt="@product.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="/Home/Details/@product.Id"> @product.Name </a>
+                        </h5>
+                        <p class="card-text pt-3 description">
+
+                            @product.Description
+
+                        </p>
+
+                        <p class="card-text ">
+                            <small class="text-muted product-price">
+                            @product.Price TL
+                            </small>
+                            <a href="/Home/Details/@product.Id" class="btn btn-primary btn-xs float-right">
+                                >> Ürünü İncele
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
