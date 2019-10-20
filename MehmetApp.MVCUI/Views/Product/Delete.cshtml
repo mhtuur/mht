@@ -1,0 +1,49 @@
+﻿@model MehmetApp.MVCUI.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container pb-5 pt-5">
+    
+    <h2>Ürün Sil</h2>
+
+    <h3>Bu ürünü silmek istediğinize emin misiniz ?</h3>
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-primary" /> &nbsp;
+                @Html.ActionLink("Ürün Listesi", "Index",null,new{@class="btn btn-danger"})
+            </div>
+        }
+    </div>
+
+</div>
+
+

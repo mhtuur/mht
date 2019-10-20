@@ -4,7 +4,17 @@
     ViewBag.Title = "Details";
 }
 
-<div class="container">
+<style>
+
+    #product-details h1 {
+        font-size: 30px;
+        font-weight: 400;
+        font-family: inherit;
+    }
+
+</style>
+
+<div id="product-details" class="container">
 
     <div class="row mt-3 mb-3">
 
@@ -20,8 +30,16 @@
 
 
             <h1>@Model.Name</h1>
+            
+            @if (@Model.Stock>0)
+            {
+                <span class="badge badge-primary">In stock</span>    
+            }
+            else
+            {
+                <span class="badge badge-danger">No stock</span>
+            }
 
-            <span class="badge badge-primary">In stock</span>
             <span class="product-number">#23048747</span>
 
             <div id="description">
@@ -35,21 +53,19 @@
             </div>
 
             <div class="row">
+                <div class="col">
 
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half" aria-hidden="true"></i>
-                <span class="badge badge-success">56</span>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half" aria-hidden="true"></i> &nbsp;
 
-                <div id="write-review">
-
+                    <span class="badge badge-success">56</span> &nbsp;
                     <a href="">Yorum Yap</a>
 
-                </div>
-
-
+                </div>        
+                
             </div>
 
             <div>
@@ -62,7 +78,7 @@
 
                 <button class="btn btn-warning">
 
-                    <i class="fas fa-shopping-cart" style="font-size: 15px;"> Sepete Ekle</i>
+                    <i class="fa fa-shopping-cart" style="font-size: 15px;"> Sepete Ekle</i>
 
                 </button>
 

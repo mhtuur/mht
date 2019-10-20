@@ -10,7 +10,7 @@ namespace MehmetApp.MVCUI.Entity
     {
         public DataContext():base("DataConnection")
         {
-            Database.SetInitializer(new DataInitilializer());
+            
         }
 
         public DbSet<Product> Products { get; set; }

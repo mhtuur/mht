@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MehmetApp.MVCUI.Entity;
+using MehmetApp.MVCUI.Identity;
 
 namespace MehmetApp.MVCUI
 {
@@ -13,6 +16,8 @@ namespace MehmetApp.MVCUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.SetInitializer(new DataInitilializer()); 
+            Database.SetInitializer(new IdentityInitializer());
         }
     }
 }

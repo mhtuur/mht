@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MehmetApp.MVCUI.Entity.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container pb-5">
+
+    <h2>Ürün Listesi</h2>
+
+    <p>
+        @Html.ActionLink("Yeni Ürün EKle", "Create",null,new{@class="btn btn-primary"})
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>
+            <th style="width: 200px;">
+                @Html.DisplayNameFor(model => model.IsHome)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+        <tr>
+
+            <td>
+                <img src="/Upload/@item.Image" width="70"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @if (item.IsApproved)
+                {
+                    <span class="badge badge-success">
+                        <i class="fa fa-check" style="font-size: 15px;">Evet</i>
+                    </span>
+
+                }
+                else
+                {
+
+                    <span class="badge badge-danger">
+                        <i class="fa fa-times" style="font-size: 15px;">Hayır</i>
+                    </span>
+
+                }
+            </td>
+            <td>
+
+                @if (item.IsHome)
+                {
+                    <span class="badge badge-success">
+                        <i class="fa fa-check" style="font-size: 15px;">Evet</i>
+                    </span>
+
+                }
+                else
+                {
+
+                    <span class="badge badge-danger">
+                        <i class="fa fa-times" style="font-size: 15px;">Hayır</i>
+                    </span>
+
+                }
+
+
+            </td>
+            <td style="width: 145px;">
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" }) &nbsp;
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+        }
+
+    </table>
+    
+
+</div>
+
+
