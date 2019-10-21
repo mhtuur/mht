@@ -10,6 +10,7 @@ using MehmetApp.MVCUI.Entity;
 
 namespace MehmetApp.MVCUI.Controllers
 {
+    [Authorize(Roles = "admin")] // Sadece  Login olan adminlerin ulaşmasını istediğimiz Actionlar varsa  bu Annotation kullanılır! Tüm loginler için [Authorize] 
     public class CategoryController : Controller
     {
         private DataContext db = new DataContext();

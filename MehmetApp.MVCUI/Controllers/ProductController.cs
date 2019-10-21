@@ -10,10 +10,12 @@ using MehmetApp.MVCUI.Entity;
 
 namespace MehmetApp.MVCUI.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ProductController : Controller
     {
         private DataContext db = new DataContext();
 
+        // [Authorize(Roles = "admin")] buraya koysaydık; Sadece admin rolündeki kişi ProductController daki Index action'ına ulaşabilecekti.
         // GET: Product
         public ActionResult Index()
         {

@@ -81,7 +81,7 @@ namespace MehmetApp.MVCUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login model)
+        public ActionResult Login(Login model,string ReturnUrl) // ReturnUrl [Authorize] (Controller için) login olduktan sonra otomatik istenen sayfaya yönlendirmek için kullanılır.
         {
 
             if (ModelState.IsValid)//Gelen modelin kontrolünü yapalım
@@ -102,6 +102,11 @@ namespace MehmetApp.MVCUI.Controllers
 
                 authManager.SignIn(IsPersist,identityclaims);
                 // Kullanıcı sisteme dahil edildi.
+
+                if (!String.IsNullOrEmpty(ReturnUrl))
+                {
+                   return Redirect(ReturnUrl);
+                }
 
                 return RedirectToAction("Index", "Home");
             }
