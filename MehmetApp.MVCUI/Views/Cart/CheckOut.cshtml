@@ -1,0 +1,103 @@
+﻿@model MehmetApp.MVCUI.Models.ShippingDetails
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<style>
+
+    .validation-summary-errors 
+    {
+        font-weight: bold; color: red;
+    }
+    .input-validation-error {
+        border: 1px solid red;
+
+    }
+
+</style>
+
+<div class="container pt-5">
+    
+    <div class="row">
+        
+        <div class="col-md-12">
+
+            <h2>Sipariş Bilgileriniz</h2>
+            <span>Lütfen sipariş bilgilerinizi doldurunuz.</span>
+            <hr />
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Ad Soyad</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Adres Tanımı</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.AdresBasligi, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Adres</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Şehir</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Semt</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.Semt, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Mahalle</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.Mahalle, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Posta Kodu</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(x => x.PostaKodu, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary">Onayla</button>
+                    </div>
+                </div>
+
+
+            }
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+

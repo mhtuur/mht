@@ -75,12 +75,22 @@
             </div>
 
             <div>
+                
+                
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    
+                @Html.HiddenFor(i => i.Id)
 
-                <button class="btn btn-warning">
+                <button type="submit" class="btn btn-warning">
 
                     <i class="fa fa-shopping-cart" style="font-size: 15px;"> Sepete Ekle</i>
 
                 </button>
+                
+                }
+
+                
 
             </div>
 

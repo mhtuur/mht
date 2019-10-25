@@ -1,0 +1,20 @@
+﻿@model MehmetApp.MVCUI.Models.Cart
+
+<style>
+
+    #cart {
+
+        color: beige;
+    }
+
+</style>
+
+<ul class="navbar-nav my-2 my-lg-0">
+  
+        <li id="cart" class="nav-item active">
+            <i class="fa fa-shopping-cart" style="font-size: 15px;"></i>
+            (@Model.CartLines.Count)
+        </li>
+      
+   
+</ul>

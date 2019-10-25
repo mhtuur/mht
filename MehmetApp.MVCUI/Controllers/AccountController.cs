@@ -105,7 +105,7 @@ namespace MehmetApp.MVCUI.Controllers
 
                 if (!String.IsNullOrEmpty(ReturnUrl))
                 {
-                   return Redirect(ReturnUrl);
+                   return Redirect(ReturnUrl); // Redirect ile "ReturnUrl" kullanılır
                 }
 
                 return RedirectToAction("Index", "Home");
